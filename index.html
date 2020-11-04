@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Submission 2 PWA</title>
+  <meta name="description" content="My first PWA"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/materialize.min.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" type="image/png" href="/assets/img/fav.png"/>
+  <link rel="apple-touch-icon" href="/assets/img/icon.png">
+  <meta name="theme-color" content="#00897B"/>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <nav class="teal lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">
+        Serie A
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">&#9776;</a>
+
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul id="nav-mobile" class="sidenav"></ul>
+    </div>
+  </nav>
+
+  <div class="body-content container"></div>
+  <div class="load">
+    <div class="loading">
+      <img src="assets/img/loading.gif" alt="Loading">
+    </div>
+  </div>
+
+  <script src="assets/js/materialize.min.js"></script>
+  <script src="assets/js/helper.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/sw-register.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/idb.js"></script>
+  <script src="assets/js/db.js"></script>
+</body>
+</html>
