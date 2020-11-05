@@ -149,26 +149,35 @@ function getFavoriteTeam() {
   document.querySelector('.load').style.display = 'block'
   getAllData().then(data => {
     console.log(data);
-    if (data.length === 0) return document.getElementById("team_fav").innerHTML = ""
-    var teamHTML = ""
-    data.forEach(team => {
-      team = JSON.parse(JSON.stringify(team).replace(/http:/g, 'https:'));
-      teamHTML += `<tr>
-        <td class="center-align">
-            <img alt="${team.id}" src=${team.crestUrl} style="width:20px;height:20px;" onError="this.onerror=null;this.src='assets/img/loading.gif';"><br>
-            ${team.shortName}
-        </td>
-        <td class="center-align">${team.name}</td>
-        <td class="center-align">${team.founded}</td>
-        <td class="center-align">${team.phone}</td>
-        <td class="center-align">${team.address}</td>
-        <td class="center-align">${team.venue}</td>
-        <td class="center-align">
-          <a class="waves-effect waves-light btn-small" onClick="deleteFav(${team.id})">Delete</a>
+    console.log(`data`);
+    if (data.length === 0) {
+      document.querySelector('.load').style.display = 'none'
+      document.getElementById("team_fav").innerHTML = `<tr>
+        <td colspan="7">
+            Data Favorit Kosong
         </td>
       </tr>`
-    })
-    document.getElementById("team_fav").innerHTML = teamHTML
-    document.querySelector('.load').style.display = 'none'
+    }else{
+      var teamHTML = ""
+      data.forEach(team => {
+        team = JSON.parse(JSON.stringify(team).replace(/http:/g, 'https:'));
+        teamHTML += `<tr>
+          <td class="center-align">
+              <img alt="${team.id}" src=${team.crestUrl} style="width:20px;height:20px;" onError="this.onerror=null;this.src='assets/img/loading.gif';"><br>
+              ${team.shortName}
+          </td>
+          <td class="center-align">${team.name}</td>
+          <td class="center-align">${team.founded}</td>
+          <td class="center-align">${team.phone}</td>
+          <td class="center-align">${team.address}</td>
+          <td class="center-align">${team.venue}</td>
+          <td class="center-align">
+            <a class="waves-effect waves-light btn-small" onClick="deleteFav(${team.id})">Delete</a>
+          </td>
+        </tr>`
+      })
+      document.getElementById("team_fav").innerHTML = teamHTML
+      document.querySelector('.load').style.display = 'none'
+    }
   })
 }
